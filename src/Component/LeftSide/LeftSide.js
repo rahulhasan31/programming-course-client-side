@@ -10,8 +10,8 @@ const LeftSide = () => {
         .then(data=>setCategories(data))
     },[])
     return (
-        <div>
-            <h2>{categories.length}</h2>
+        <div className=''>
+          
             
             {
             categories.map(category=> <p key={category._id}>

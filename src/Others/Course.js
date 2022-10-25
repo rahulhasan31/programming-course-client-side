@@ -12,7 +12,7 @@ const Course = ({course}) => {
     }=course
     return (
         <div className='row row-col-lg-2'>
-             <Card className="mt-4 text-center">
+     <Card className="mt-4 text-center">
       <Card.Header>
         <Image
         src={image_url}
@@ -28,9 +28,9 @@ const Course = ({course}) => {
         <Card.Text>
           {
             details?.length> 100 ?
-  <p>{details.slice(0, 100)+'...'} <Link to={`/course/${_id}`}>Reed More</Link> </p>
+  <>{details.slice(0, 100)+'...'} <Link to={`/course/${_id}`}>Reed More</Link> </>
             :
-            <p>{details}</p>
+            <>{details}</>
 
           }
         </Card.Text>

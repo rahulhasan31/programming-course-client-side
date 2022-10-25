@@ -63,7 +63,7 @@ const Register = () => {
 
     return (
         <div>
-    <Form onSubmit={handleRegisterSubmit}>
+    <Form onSubmit={handleRegisterSubmit} className='w-50'>
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Name</Form.Label>
         <Form.Control name='name' type="name" placeholder="Enter Your Name" />

@@ -19,11 +19,13 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link as={Link} to="/course">Courses</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
+            <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
+            <Nav.Link as={Link} to='/faq'>FAQ</Nav.Link>
+           
             
           </Nav>
           <Nav>
-            <Nav.Link href="#deets">  {
+            <>  {
                   user?.uid ?
                   <>
                   <span className='me-2 '>{user?.displayName}</span>
@@ -33,11 +35,12 @@ const Header = () => {
                   </>
                   :
                   <>
-                  <Link to={'/login'}>Login</Link>
+                  <Link to={'/login'}><Button>Login</Button></Link>
                   </>
                   
                 }
-                </Nav.Link>
+                </>
+
             <Nav.Link eventKey={2} href="#memes">
 
              {
@@ -53,7 +56,9 @@ const Header = () => {
               <FaUser></FaUser>
 
              }
+
             </Nav.Link>
+           
           </Nav>
         </Navbar.Collapse>
       </Container>

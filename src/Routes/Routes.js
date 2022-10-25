@@ -3,7 +3,6 @@ import Home from "../Component/Home/Home";
 import Login from "../Component/Login/Login";
 import Register from "../Component/Login/Register/Register";
 import Main from "../Layout/Main";
-import Category from "../Others/Category";
 import CoureseDetails from "../Others/CoureseDetails";
 import Courses from "../Others/Courses";
 
