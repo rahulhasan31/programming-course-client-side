@@ -14,11 +14,11 @@ const Header = () => {
         <div>
      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+        <Navbar.Brand as={Link} to='/'>Programming Future</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
+            <Nav.Link as={Link} to="/course">Courses</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
             
           </Nav>
@@ -39,7 +39,7 @@ const Header = () => {
                 }
                 </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-              
+
              {
               user?.photoURL?
               <>
