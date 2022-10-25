@@ -5,6 +5,7 @@ import Register from "../Component/Login/Register/Register";
 import Main from "../Layout/Main";
 import CoureseDetails from "../Others/CoureseDetails";
 import Courses from "../Others/Courses";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
 export const routes= createBrowserRouter([
@@ -34,7 +35,7 @@ export const routes= createBrowserRouter([
         },
         {
            path:'/course/:id',
-           element: <CoureseDetails></CoureseDetails>,
+           element: <PrivateRoute><CoureseDetails></CoureseDetails></PrivateRoute>,
            loader: ({params})=> fetch(`http://localhost:5000/course/${params.id}`)
         }
         

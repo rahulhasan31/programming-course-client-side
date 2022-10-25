@@ -28,14 +28,15 @@ const Header = () => {
             <>  {
                   user?.uid ?
                   <>
-                  <span className='me-2 '>{user?.displayName}</span>
+                  <span className='me-2 text-danger '>{user?.displayName}</span>
                   <Button onClick={logout} variant="primary" type="submit">
                   Logout
                   </Button>    
                   </>
                   :
                   <>
-                  <Link to={'/login'}><Button>Login</Button></Link>
+                  <Link to={'/login'} className="me-2"><Button>Login</Button></Link>
+                  <Link to={'/register'}><Button>Register</Button></Link>
                   </>
                   
                 }
@@ -60,6 +61,7 @@ const Header = () => {
             </Nav.Link>
            
           </Nav>
+          
         </Navbar.Collapse>
       </Container>
     </Navbar>
