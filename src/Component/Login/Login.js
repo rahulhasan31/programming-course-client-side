@@ -6,14 +6,15 @@ import { FaGoogle , FaGithub, FaFacebook, FaTwitter, FaWhatsapp, FaLinkedin, FaY
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import { ButtonGroup, Col, Container, Row } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 
 
 const Login = () => {
 
-    const{loginUser, googleProvider}= useContext(AuthContext)
+    const{loginUser, googleProvider, gitProvider}= useContext(AuthContext)
     const provider= new GoogleAuthProvider()
+    const signinGithub= new GithubAuthProvider()
     const [error, setError]= useState('')
 
     const handleLoginSubmit=event=>{
@@ -40,6 +41,14 @@ const Login = () => {
     }
     const handleGoogleLogin=()=>{
       googleProvider(provider)
+      .then(result=>{
+        const user= result.user
+        console.log(user);
+      })
+      .catch(e=>console.error(e))
+    }
+    const handleGithubLogin=()=>{
+      gitProvider(signinGithub)
       .then(result=>{
         const user= result.user
         console.log(user);
@@ -83,7 +92,7 @@ const Login = () => {
           </Col>
      <ButtonGroup vertical>
       <Button className='mb-2 w-50 mt-2' variant="outline-primary" onClick={handleGoogleLogin}><FaGoogle/> Log In With Google</Button>
-      <Button className='w-50' variant="outline-dark"><FaGithub/> Log In With Github</Button>
+      <Button onClick={handleGithubLogin} className='w-50' variant="outline-dark"><FaGithub/> Log In With Github</Button>
       </ButtonGroup>
               </Row>
             </Container>

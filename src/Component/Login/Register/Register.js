@@ -9,7 +9,7 @@ import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 
 const Register = () => {
-    const{createUser, googleProvider, gitProvider}= useContext(AuthContext)
+    const{createUser, googleProvider, gitProvider, updateProfileUser}= useContext(AuthContext)
     const provider= new GoogleAuthProvider()
     const signinGithub= new GithubAuthProvider()
 
@@ -21,15 +21,27 @@ const Register = () => {
         const email= form.email.value
         const password= form.password.value
 
-        console.log(name ,photoURL,);
+        // console.log(name ,photoURL,);
         createUser(email, password)
         .then(result=>{
             const user= result.user
             console.log(user);
             form.reset()
+            handleUpdateUse(name, photoURL)
         })
         .catch(e=>console.error(e))
 
+    }
+    const handleUpdateUse=(name, photoURL)=>{
+
+      const profile={
+        displayName:name,
+        photoURL: photoURL
+      }
+      updateProfileUser(profile)
+      .then(result=>{})
+      .catch(e=>console.error(e))
+       
     }
     const handleGoogleLogin=()=>{
       googleProvider(provider)
