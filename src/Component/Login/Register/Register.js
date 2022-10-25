@@ -1,9 +1,17 @@
-import React from 'react';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
+import { ButtonGroup } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 
 const Register = () => {
+    const{createUser, googleProvider, gitProvider}= useContext(AuthContext)
+    const provider= new GoogleAuthProvider()
+    const signinGithub= new GithubAuthProvider()
 
     const handleRegisterSubmit=event=>{
         event.preventDefault()
@@ -13,10 +21,34 @@ const Register = () => {
         const email= form.email.value
         const password= form.password.value
 
-        console.log(name ,photoURL, email, password);
+        console.log(name ,photoURL,);
+        createUser(email, password)
+        .then(result=>{
+            const user= result.user
+            console.log(user);
+            form.reset()
+        })
+        .catch(e=>console.error(e))
 
     }
-    
+    const handleGoogleLogin=()=>{
+      googleProvider(provider)
+      .then(result=>{
+        const user= result.user
+        console.log(user);
+      })
+      .catch(e=>console.error(e))
+    }
+
+    const handleGithubLogin=()=>{
+      gitProvider(signinGithub)
+      .then(result=>{
+        const user= result.user
+        console.log(user);
+      })
+      .catch(e=>console.error(e))
+    }
+
     return (
         <div>
     <Form onSubmit={handleRegisterSubmit}>
@@ -40,14 +72,21 @@ const Register = () => {
         <Form.Control name='password' type="password" placeholder="Password" />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        <Form.Check type="checkbox" label="Check me out" />
-      </Form.Group>
+      <p>
+      Have an account? <Link to={'/login'}>Login here</Link>
+       </p>
       <Button variant="primary" type="submit">
-        Submit
+        Sing Up
       </Button>
-    </Form>
 
+     
+    </Form>
+  <div>
+  <ButtonGroup vertical>
+      <Button className='mb-2 mt-2' variant="outline-primary" onClick={handleGoogleLogin}><FaGoogle/> Log In With Google</Button>
+      <Button onClick={handleGithubLogin} className='' variant="outline-dark"><FaGithub/> Log In With Github</Button>
+      </ButtonGroup>
+  </div>
         </div>
     );
 };

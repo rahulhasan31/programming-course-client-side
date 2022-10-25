@@ -15,11 +15,10 @@ const Main = () => {
                <Col lg={4}>
                 <LeftSide></LeftSide>
                 </Col>
-                <Col lg={6}>
+                <Col lg={8}>
                  <Outlet></Outlet>
                 </Col>
-                <Col lg={2}>
-                </Col>
+               
                </Row>
                  <Footer></Footer> 
             </Container>
