@@ -10,20 +10,25 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading]= useState(true)
 
     const createUser=(email, password)=>{
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email,password)
     }
     const loginUser=(email, password)=>{
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password) 
     }
 
     const googleProvider=(provider,)=>{
+        setLoading(true)
         return signInWithPopup(auth, provider)
     }
 
     const gitProvider=(signinGithub)=>{
+        setLoading(true)
         return signInWithPopup(auth, signinGithub)
     }
     const logout=()=>{
+        setLoading(true)
         signOut(auth)
         .then(result=>{
 
@@ -31,6 +36,7 @@ const AuthProvider = ({children}) => {
         .catch(e=>{})
     }
     const  updateProfileUser=profile=>{
+        setLoading(true)
         return updateProfile(auth.currentUser, profile)
     }
     
@@ -42,7 +48,7 @@ const AuthProvider = ({children}) => {
         return ()=>{unsubscribe()} 
     },[])
 
-    const authInfo={user, createUser , loginUser, googleProvider, gitProvider, logout, updateProfileUser}
+    const authInfo={user,loading, createUser , loginUser, googleProvider, gitProvider, logout, updateProfileUser}
 
     return (
         <AuthContext.Provider value={authInfo}>
