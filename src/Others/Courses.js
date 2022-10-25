@@ -10,7 +10,7 @@ const Courses = () => {
         <div>
               <Container>
                <Row>
-               <Col lg={4}>
+               <Col lg={4} className='d-none d-lg-block'>
                <LeftSide></LeftSide>
                 </Col>
                 <Col

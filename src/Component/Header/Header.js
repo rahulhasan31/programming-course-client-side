@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import LeftSide from '../LeftSide/LeftSide';
 
 const Header = () => {
     const {user, logout}= useContext(AuthContext)
@@ -61,7 +62,9 @@ const Header = () => {
             </Nav.Link>
            
           </Nav>
-          
+          <div className='d-lg-none'>
+            <LeftSide></LeftSide>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>

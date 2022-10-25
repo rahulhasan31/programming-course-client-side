@@ -12,7 +12,7 @@ const Course = ({course}) => {
     }=course
     return (
         <div className='row row-col-lg-2'>
-     <Card className="mt-4 text-center">
+     <Card className="mt-4 text-center shadow p-3 mb-5 bg-body rounded">
       <Card.Header>
         <Image
         src={image_url}
@@ -28,13 +28,13 @@ const Course = ({course}) => {
         <Card.Text>
           {
             details?.length> 100 ?
-  <>{details.slice(0, 100)+'...'} <Link to={`/course/${_id}`}>Reed More</Link> </>
+  <>{details.slice(0, 100)+'...'} <Link className='text-decoration-none'  to={`/course/${_id}`}>Reed More</Link> </>
             :
             <>{details}</>
 
           }
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+       <Link to={`/course/${_id}`}> <Button variant="primary">Go Details</Button></Link>
       </Card.Body>
      
     </Card>

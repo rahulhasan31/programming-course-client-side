@@ -10,12 +10,12 @@ const LeftSide = () => {
         .then(data=>setCategories(data))
     },[])
     return (
-        <div className=''>
+        <div className='mt-5  '>
           
             
             {
-            categories.map(category=> <p key={category._id}>
-                <Link to={`/course/${category._id}`}>{category.title}</Link>
+            categories.map(category=> <p className='shadow-lg p-3 mb-5 bg-body rounded ' key={category._id}>
+                <Link className='text-decoration-none fw-bolder'  to={`/course/${category._id}`}>{category.title}</Link>
                    
             </p>)
 

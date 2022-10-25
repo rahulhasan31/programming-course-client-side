@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
@@ -39,7 +39,7 @@ const CoureseDetails = () => {
 
           }
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Link to={'/course'}> <Button variant="primary">Go Course</Button></Link>
       </Card.Body>
      
     </Card>
