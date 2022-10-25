@@ -3,6 +3,8 @@ import { Col, Container, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
+import Image from 'react-bootstrap/Image'
+
 
 const Course = ({course}) => {
     console.log(course);
@@ -10,9 +12,18 @@ const Course = ({course}) => {
     }=course
     return (
         <div className='row row-col-lg-2'>
-             <Card className="text-center">
-      <Card.Header>Featured</Card.Header>
+             <Card className="mt-4 text-center">
+      <Card.Header>
+        <Image
+        src={image_url}
+        roundedCircle
+        style={{height:'30px'}}
+        
+        ></Image>
+         <Card.Title>{title}</Card.Title>
+      </Card.Header>
       <Card.Body>
+      <Card.Img variant="top" src={image_url} />
         <Card.Title>{title}</Card.Title>
         <Card.Text>
           {
@@ -25,7 +36,7 @@ const Course = ({course}) => {
         </Card.Text>
         <Button variant="primary">Go somewhere</Button>
       </Card.Body>
-      <Card.Footer className="text-muted">2 days ago</Card.Footer>
+     
     </Card>
         </div>
     );
