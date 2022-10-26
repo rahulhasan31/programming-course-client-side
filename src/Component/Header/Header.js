@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -7,10 +7,14 @@ import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import LeftSide from '../LeftSide/LeftSide';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const Header = () => {
     const {user, logout}= useContext(AuthContext)
+    const [open, setOpen] = useState(false);
+    
+  
     return (
         <div>
      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -49,16 +53,23 @@ const Header = () => {
                 }
                 </>
 
-            <Nav.Link eventKey={2} href="#memes">
+            <Nav.Link as={Link}>
 
              {
               user?.photoURL?
               <>
-              <Image src={user?.photoURL}
+             <div className='d-flex' onMouseOver={() => setOpen(true)} onMouseOut={() => setOpen(false)}>
+             <Image  src={user?.photoURL}
               roundedCircle
               style={{height:'30px'}}
               >
+                
               </Image>
+              <div className='ms-4'>
+             {open ? user?.displayName  : '' }
+             </div>
+             </div>
+            
               </>
               :
               <FaUser></FaUser>
