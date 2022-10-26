@@ -8,9 +8,9 @@ const firebaseConfig = {
   apiKey: process.env.REACT_APP_apiKey,
   authDomain: process.env.REACT_APP_authDomain,
   projectId: process.env.REACT_APP_projectId,
-  storageBucket: "programming-course-6d620.appspot.com",
-  messagingSenderId: "260626350380",
-  appId: "1:260626350380:web:ae737fbc99a6cb61d2ac89"
+  storageBucket: process.env.REACT_APP_storageBucket,
+  messagingSenderId: process.env.REACT_APP_messagingSenderId,
+  appId: process.env.REACT_APP_appId
 };
 
 // Initialize Firebase
