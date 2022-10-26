@@ -8,13 +8,10 @@ const Blog = () => {
                 <Accordion.Item eventKey="0">
                     <Accordion.Header> what is cors?</Accordion.Header>
                     <Accordion.Body>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                        minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                        aliquip ex ea commodo consequat. Duis aute irure dolor in
-                        reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                        pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                        culpa qui officia deserunt mollit anim id est laborum.
+                    Web browsers prevent unknown websites from accessing your application programming interfaces and services. This way, your server shares its resources only with clients that are on the same domain. However, there are situations where you want to lift this guard or get more fine-grained control over which websites access your server's resources. In such cases, you implement CORS (cross-origin resource sharing) on your server. 
+
+In this post, I'll talk about what CORS is and why it's useful. I'll then walk you through how you can enable CORS in your NodeJS application. You can also learn more about the basics of CORS here. 
+
                     </Accordion.Body>
                 </Accordion.Item>
                 <Accordion.Item eventKey="1">
