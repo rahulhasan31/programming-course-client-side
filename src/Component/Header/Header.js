@@ -3,11 +3,11 @@ import { Button, Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
 import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import LeftSide from '../LeftSide/LeftSide';
+
 
 const Header = () => {
     const {user, logout}= useContext(AuthContext)
@@ -15,10 +15,16 @@ const Header = () => {
         <div>
      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand as={Link} to='/'>Programming Future</Navbar.Brand>
+        <Navbar.Brand as={Link} to='/'><Image 
+            roundedCircle
+            style={{height:'30px'}}
+            src="/image/weblogo.jpg">
+
+            </Image>Programming Future</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
+            
             <Nav.Link as={Link} to="/course">Courses</Nav.Link>
             <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
             <Nav.Link as={Link} to='/faq'>FAQ</Nav.Link>
