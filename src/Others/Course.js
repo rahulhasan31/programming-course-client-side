@@ -28,7 +28,7 @@ const Course = ({course}) => {
         <Card.Text>
           {
             details?.length> 100 ?
-  <>{details.slice(0, 100)+'...'} <Link className='text-decoration-none'  to={`/course/${_id}`}>Reed More</Link> </>
+           <>{details.slice(0, 100)+'...'} <Link className='text-decoration-none'  to={`/course/${_id}`}>Reed More</Link> </>
             :
             <>{details}</>
 

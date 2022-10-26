@@ -5,7 +5,7 @@ const LeftSide = () => {
     const [categories, setCategories]= useState([])
 
     useEffect(()=>{
-        fetch('http://localhost:5000/course')
+        fetch('https://programming-course-server.vercel.app/course')
         .then(res=>res.json())
         .then(data=>setCategories(data))
     },[])
