@@ -14,6 +14,7 @@ const Course = ({course}) => {
         <div className='row row-col-lg-2'>
      <Card className="mt-4 text-center shadow p-3 mb-5 bg-body rounded">
       <Card.Header>
+      
         <Image
         src={image_url}
         roundedCircle
@@ -25,6 +26,7 @@ const Course = ({course}) => {
       <Card.Body>
       <Card.Img variant="top" src={image_url} />
         <Card.Title>{title}</Card.Title>
+        
         <Card.Text>
           {
             details?.length> 100 ?

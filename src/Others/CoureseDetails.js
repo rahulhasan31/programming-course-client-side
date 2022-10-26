@@ -1,18 +1,25 @@
-import React from 'react';
+import React ,{ useRef }from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Image from 'react-bootstrap/Image'
 import { Col, Container, Row } from 'react-bootstrap';
 import LeftSide from '../Component/LeftSide/LeftSide';
+import {useReactToPrint} from  'react-to-print'
 
 
 const CoureseDetails = () => {
     const courseDetails= useLoaderData()
     const{title, image_url, details, _id
     }=courseDetails
+    const componentRef= useRef()
+    const handlePrint= useReactToPrint({
+      content:()=>componentRef.current,
+      documentTitle:'emp-data',
+      onAfterPrint:()=>alert('success')
+    })
     return (
-        <div>
+        <div ref={componentRef}>
             <Container>
                <Row>
                <Col lg={4}>
@@ -22,6 +29,7 @@ const CoureseDetails = () => {
                  lg={8}>
                  <Card className="mt-4 text-center">
       <Card.Header>
+      <Link> <Button onClick={handlePrint} variant="primary">PDF Download</Button></Link>
         <Image
         src={image_url}
         roundedCircle
@@ -40,7 +48,10 @@ const CoureseDetails = () => {
           }
         </Card.Text>
         
-        <Link to={`/checkout/${_id}`}> <Button variant="primary">Check Out</Button></Link>
+        <Link to={`/checkout/${_id}`}> <Button variant="primary">Get premium access.</Button></Link>
+        <div >
+       
+        </div>
       </Card.Body>
      
     </Card>

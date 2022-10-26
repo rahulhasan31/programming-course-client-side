@@ -8,17 +8,33 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import LeftSide from '../LeftSide/LeftSide';
 import 'react-toastify/dist/ReactToastify.css';
+import './Header.css'
 
 
 const Header = () => {
     const {user, logout}= useContext(AuthContext)
     const [open, setOpen] = useState(false);
-    
+    const [darkMode, setDarkMode]= useState(false)
   
     return (
-        <div>
+        <div className={darkMode ? "dark-mode" : "light-mode"}>
      <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
+        <div>
+        <div >
+      <div className="container">
+        <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
+        <div className="switch-checkbox">
+          <label className="switch">
+            <input type="checkbox" onChange={() => setDarkMode(!darkMode)} />
+            <span className="slider round"> </span>
+          </label>
+        </div>
+        <span style={{ color: darkMode ? "#c96dfd" : "grey" }}>☽</span>
+      </div>
+      
+    </div>
+        </div>
         <Navbar.Brand as={Link} to='/'><Image 
             roundedCircle
             style={{height:'30px'}}

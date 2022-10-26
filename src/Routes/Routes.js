@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../Component/Home/Home";
 import Login from "../Component/Login/Login";
 import Register from "../Component/Login/Register/Register";
+import ReactPdf from "../Component/ReactPdf";
 import Main from "../Layout/Main";
 import Blog from "../Others/Blog";
 import CheckOutPage from "../Others/CheckOutPage";
@@ -51,6 +52,10 @@ export const routes= createBrowserRouter([
             element:<CheckOutPage></CheckOutPage>,
             loader: ({params})=> fetch(`https://programming-course-server.vercel.app/course/${params.id}`)
             
+        },
+        {
+            path:'/pdf',
+            element: <ReactPdf></ReactPdf>
         }
 
         
