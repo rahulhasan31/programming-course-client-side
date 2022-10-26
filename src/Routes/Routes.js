@@ -4,6 +4,7 @@ import Login from "../Component/Login/Login";
 import Register from "../Component/Login/Register/Register";
 import Main from "../Layout/Main";
 import Blog from "../Others/Blog";
+import CheckOutPage from "../Others/CheckOutPage";
 import CoureseDetails from "../Others/CoureseDetails";
 import Courses from "../Others/Courses";
 import ErrorPage from "../Others/ErrorPage";
@@ -44,7 +45,14 @@ export const routes= createBrowserRouter([
         {
             path: '/blog',
             element: <Blog></Blog>
+        },
+        {
+            path:'/checkout/:id',
+            element:<CheckOutPage></CheckOutPage>,
+            loader: ({params})=> fetch(`https://programming-course-server.vercel.app/course/${params.id}`)
+            
         }
+
         
     ]
     

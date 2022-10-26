@@ -35,6 +35,7 @@ const Course = ({course}) => {
           }
         </Card.Text>
        <Link to={`/course/${_id}`}> <Button variant="primary">Go Details</Button></Link>
+       
       </Card.Body>
      
     </Card>
