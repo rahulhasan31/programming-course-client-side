@@ -1,5 +1,5 @@
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ButtonGroup, Card, Col, Container, FormCheck, FormControl, Row } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
@@ -12,6 +12,7 @@ const Register = () => {
     const{createUser, googleProvider, gitProvider, updateProfileUser}= useContext(AuthContext)
     const provider= new GoogleAuthProvider()
     const signinGithub= new GithubAuthProvider()
+    const [error, setError]= useState('')
 
     const handleRegisterSubmit=event=>{
         event.preventDefault()
@@ -29,7 +30,10 @@ const Register = () => {
             form.reset()
             handleUpdateUse(name, photoURL)
         })
-        .catch(e=>console.error(e))
+        .catch(e=>{
+          const msg= e.message
+          setError(msg)
+        })
 
     }
     const handleUpdateUse=(name, photoURL)=>{
@@ -141,9 +145,12 @@ const Register = () => {
       <p className="text-info fw-bold">
       Have an account? <Link  to={'/login'}>Login here</Link>
        </p>
-      <Button variant="primary" type="submit">
+       <p className='text-danger' >{error}</p>
+      
+      <Button   variant="primary" type="submit">
         Sing Up
       </Button>
+   
 
      
     </Form>
