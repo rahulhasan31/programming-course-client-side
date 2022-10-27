@@ -67,7 +67,8 @@ const Header = () => {
                   :
                   <>
                   <Link to={'/login'} className="me-2"><Button>Login</Button></Link>
-                  <Link to={'/register'}><Button>Register</Button></Link>
+                  <br />
+                  <Link className='' to={'/register'}><Button>Register</Button></Link>
                   </>
                   
                 }
@@ -79,13 +80,13 @@ const Header = () => {
               user?.photoURL?
               <>
              <div className='d-flex' onMouseOver={() => setOpen(true)} onMouseOut={() => setOpen(false)}>
-             <Image  src={user?.photoURL}
+             <Image className='mt-2' src={user?.photoURL}
               roundedCircle
               style={{height:'30px'}}
               >
                 
               </Image>
-              <div className='ms-4'>
+              <div className='ms-4 mt-2'>
              {open ? user?.displayName  : '' }
              </div>
              </div>

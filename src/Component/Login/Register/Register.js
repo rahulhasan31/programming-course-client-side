@@ -130,12 +130,12 @@ const Register = () => {
 
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label className="text-info fw-bold">Email address</Form.Label>
-        <Form.Control name='email' type="email" placeholder="Enter email" />
+        <Form.Control name='email' type="email" placeholder="Enter email"  required/>
        </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label className="text-info fw-bold">Password</Form.Label>
-        <Form.Control name='password' type="password" placeholder="Password" />
+        <Form.Control name='password' type="password" placeholder="Password" required />
       </Form.Group>
 
       <p className="text-info fw-bold">
