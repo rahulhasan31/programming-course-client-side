@@ -4,7 +4,7 @@ import { ButtonGroup, Card, Col, Container, FormCheck, FormControl, Row } from '
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../AuthProvider/AuthProvider';
 
 
@@ -13,6 +13,11 @@ const Register = () => {
     const provider= new GoogleAuthProvider()
     const signinGithub= new GithubAuthProvider()
     const [error, setError]= useState('')
+    const navigate= useNavigate()
+    const location= useLocation()
+
+    const from= location.state?.from?.pathname || '/'
+
 
     const handleRegisterSubmit=event=>{
         event.preventDefault()
@@ -29,6 +34,7 @@ const Register = () => {
             console.log(user);
             form.reset()
             handleUpdateUse(name, photoURL)
+            navigate(from , {replace: true})
         })
         .catch(e=>{
           const msg= e.message
