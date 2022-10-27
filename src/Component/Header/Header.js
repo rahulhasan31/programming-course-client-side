@@ -17,12 +17,21 @@ const Header = () => {
     const [darkMode, setDarkMode]= useState(false)
   
     return (
-        <div className={darkMode ? "dark-mode" : "light-mode"}>
-     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <div className=''>
+     <Navbar className='shadow-sm p-3 mb-5 bg-body rounded bg-teal-400 bg-info' collapseOnSelect expand="lg" bg="info" variant="info">
       <Container>
-        <div>
+      <div className='flex items-center justify-center w-12 h-12 rounded-full bg-cyan-200'>
+              <svg
+                xmlns='http://www.w3.org/2000/svg'
+                viewBox='0 0 32 32'
+                fill='currentColor'
+                className='d-flex-shrink-0 w-5 h-5 rounded-full text-cyan-600 text-decoration-non'
+              >
+                <path d='M18.266 26.068l7.839-7.854 4.469 4.479c1.859 1.859 1.859 4.875 0 6.734l-1.104 1.104c-1.859 1.865-4.875 1.865-6.734 0zM30.563 2.531l-1.109-1.104c-1.859-1.859-4.875-1.859-6.734 0l-6.719 6.734-6.734-6.734c-1.859-1.859-4.875-1.859-6.734 0l-1.104 1.104c-1.859 1.859-1.859 4.875 0 6.734l6.734 6.734-6.734 6.734c-1.859 1.859-1.859 4.875 0 6.734l1.104 1.104c1.859 1.859 4.875 1.859 6.734 0l21.307-21.307c1.859-1.859 1.859-4.875 0-6.734z'></path>
+              </svg>
+            </div>
         <div >
-      <div className="container">
+      <div className='container'>
         <span style={{ color: darkMode ? "grey" : "yellow" }}>☀︎</span>
         <div className="switch-checkbox">
           <label className="switch">
@@ -34,20 +43,15 @@ const Header = () => {
       </div>
       
     </div>
-        </div>
-        <Navbar.Brand as={Link} to='/'><Image 
-            roundedCircle
-            style={{height:'30px'}}
-            src="/image/weblogo.jpg">
-
-            </Image>Programming Future</Navbar.Brand>
+      
+        <Navbar.Brand as={Link} to='/' className='fw-bolder'>Programming Future</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             
-            <Nav.Link as={Link} to="/course">Courses</Nav.Link>
-            <Nav.Link as={Link} to='/blog'>Blog</Nav.Link>
-            <Nav.Link as={Link} to='/faq'>FAQ</Nav.Link>
+            <Nav.Link className='fw-bold text-black ' as={Link} to="/course">Courses</Nav.Link>
+            <Nav.Link className='fw-bold text-black ' as={Link} to='/blog'>Blog</Nav.Link>
+            <Nav.Link className='fw-bold text-black ' as={Link} to='/faq'>FAQ</Nav.Link>
            
             
           </Nav>
@@ -55,8 +59,8 @@ const Header = () => {
             <>  {
                   user?.uid ?
                   <>
-                  <span className='me-2 text-danger '>{user?.displayName}</span>
-                  <Button onClick={logout} variant="primary" type="submit">
+                  <span className='me-2 text-danger w-30 h-50 '>{user?.displayName}</span>
+                  <Button className=' mt-3 w-30 h-50' onClick={logout} variant="primary" type="submit">
                   Logout
                   </Button>    
                   </>

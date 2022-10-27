@@ -2,13 +2,14 @@ import { createBrowserRouter } from "react-router-dom";
 import Home from "../Component/Home/Home";
 import Login from "../Component/Login/Login";
 import Register from "../Component/Login/Register/Register";
-import ReactPdf from "../Component/ReactPdf";
+
 import Main from "../Layout/Main";
 import Blog from "../Others/Blog";
 import CheckOutPage from "../Others/CheckOutPage";
 import CoureseDetails from "../Others/CoureseDetails";
 import Courses from "../Others/Courses";
 import ErrorPage from "../Others/ErrorPage";
+import FaqPage from "../Others/FaqPage";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 
@@ -54,8 +55,8 @@ export const routes= createBrowserRouter([
             
         },
         {
-            path:'/pdf',
-            element: <ReactPdf></ReactPdf>
+            path:'/faq',
+            element:<FaqPage></FaqPage> 
         }
 
         

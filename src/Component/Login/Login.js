@@ -99,7 +99,7 @@ const Login = () => {
           </Col>
      <ButtonGroup vertical>
       <Button className='mb-2 w-50 mt-2' variant="outline-primary" onClick={handleGoogleLogin}><FaGoogle/> Log In With Google</Button>
-      <Button onClick={handleGithubLogin} className='w-50' variant="outline-dark"><FaGithub/> Log In With Github</Button>
+      <Button onClick={handleGithubLogin} className='w-50 mb-5' variant="outline-dark"><FaGithub/> Log In With Github</Button>
       </ButtonGroup>
               </Row>
             </Container>
